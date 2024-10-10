@@ -1,0 +1,228 @@
+
+header {
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    background: url('../img/fondo.jpg') no-repeat center center fixed; 
+    background-size: cover; 
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); 
+    z-index: -1; 
+}
+
+h1  .text-center {
+    margin: 0px;
+}
+
+.fredoka {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300px;
+  font-style: normal;
+}
+
+
+.text-center img {
+    max-width: 200px; 
+    height: auto; 
+}
+
+/* Estilos para los productos */
+.productos {
+    margin: 40px 20px;
+}
+
+/* Efecto de hover en las tarjetas de productos */
+.card:hover {
+    transform: scale(1.05); 
+}
+
+/* Colores para los botones de agregar productos */
+.btn.btn-primary {
+    background-color: #B197FC !important; 
+    color: white !important; 
+    border: none; 
+    border-radius: 20px; 
+    padding: 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.btn.btn-primary:hover {
+    background-color: #2a4577 !important;
+}
+
+/* Estilos para el carrito */
+.carrito {
+    display: block;
+    max-width: 500px; 
+    width: 100%; 
+    margin: 40px auto; 
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    background: linear-gradient(145deg, #f9f9f9, #e4e4e4); 
+    overflow: hidden; 
+}
+
+/* Estilos para la lista del carrito */
+.listaCarrito {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Estilo de cada elemento de la lista */
+.listaCarrito li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    transition: background-color 0.3s; 
+}
+
+.listaCarrito li:hover {
+    background-color: rgba(177, 151, 252, 0.1); 
+}
+
+/* Estilo del total del carrito */
+.totalCarrito {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.5rem; 
+    color: #B197FC; 
+}
+
+/* Alineación del total */
+.totalCarrito::before {
+    content: "Total: "; 
+    font-weight: normal; 
+    color: #333; 
+}
+
+.container-carrito {
+    max-width: 500px !important;
+}
+
+/* Botones del carrito */
+button {
+    background-color: #B197FC; 
+    color: white; 
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2a4577; 
+}
+
+
+.custom-footer {
+    background-color: #563d7c; 
+    color: #ffffff; 
+    padding: 20px; 
+    text-align: center;
+    font-size: 1rem; 
+}
+
+
+/* Media Queries para responsividad */
+@media (max-width: 600px) {
+    .productos {
+        flex-direction: column;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos para la barra de navegación */
+
+
+.custom-navbar {
+    background-color: #fdedec !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    padding-right: 20px;
+}
+
+.nav-item :hover {
+    background-color: #ba94f3 ;
+    transform: scale(1.05);
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+/* Ícono del carrito de compras */
+.nav-link .fa-shopping-cart {
+    font-size: 1.7rem; 
+    color: #B197FC; 
+}
+
+.nav-link .fa-shopping-cart:hover {
+    color: #563d7c; 
+}
+
+/* Responsivo: Centrando los ítems en pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.formulario-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.formulario-container input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.mensaje {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #8928a7; 
+}
+
