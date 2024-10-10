@@ -1,96 +1,16 @@
-// Arrays y constantes
-const medicamentos = [
-  {
-    id: 1,
-    nombre: "Naxpet",
-    presentaciones: [
-      { nombre: "100ml", precio: 120 },
-      { nombre: "200ml", precio: 189 },
-    ],
-    propiedades: "Antiinflamatorio y analgésico para animales",
-    imagen: "./img/naxpet-iny.jpg", 
-  },
-  {
-    id: 2,
-    nombre: "Doxiciclina",
-    presentaciones: [
-      { nombre: "10 cápsulas", precio: 100 },
-      { nombre: "20 cápsulas", precio: 180 },
-    ],
-    propiedades: "Antibiótico de amplio espectro",
-    imagen: "./img/doximicin-comp.jpg", 
-  },
-  {
-    id: 3,
-    nombre: "Prednisolona",
-    presentaciones: [
-      { nombre: "10 cápsulas ", precio: 45 },
-      { nombre: "25 cápsulas", precio: 80 },
-    ],
-    propiedades: "Corticoide antiinflamatorio",
-    imagen: "./img/dernmisolona-comp.jpg", 
-  },
-  {
-    id: 4,
-    nombre: "Fenilbutazona",
-    presentaciones: [
-      { nombre: "100ml", precio: 90 },
-      { nombre: "250ml", precio: 150 },
-    ],
-    propiedades: "Analgésico y antiinflamatorio",
-    imagen: "./img/butaflex.jpg", 
-  },
-  {
-    id: 5,
-    nombre: "Clorhidrato de Trimebutina",
-    presentaciones: [
-      { nombre: "100ml", precio: 60 },
-      { nombre: "200ml", precio: 110 },
-    ],
-    propiedades: "Antiespasmódico y analgésico",
-    imagen: "./img/respig.jpg", 
-  },
-  {
-    id: 6,
-    nombre: "Ivermectina",
-    presentaciones: [
-      { nombre: "50ml", precio: 55 },
-      { nombre: "100ml", precio: 95 },
-    ],
-    propiedades: "Antiparasitario",
-    imagen: "./img/invermic.jpg", 
-  },
-  {
-    id: 7,
-    nombre: "Bendazol",
-    presentaciones: [
-      { nombre: "30ml", precio: 70 },
-      { nombre: "60ml", precio: 120 },
-    ],
-    propiedades: "Antiparasitario de amplio espectro",
-    imagen: "./img/bzol.jpg", 
-  },
-  {
-    id: 8,
-    nombre: "Metronidazol",
-    presentaciones: [
-      { nombre: "100ml", precio: 30 },
-      { nombre: "200ml", precio: 50 },
-    ],
-    propiedades: "Antibiótico y antiparasitario",
-    imagen: "./img/gastroenteril.jpg", 
-  },
-  {
-    id: 9,
-    nombre: "Loperamida",
-    presentaciones: [
-      { nombre: "100ml", precio: 59 },
-      { nombre: "200ml", precio: 80 },
-    ],
-    propiedades: "Antidiarreico",
-    imagen: "./img/diarrepas.jpg", 
-  },
-];
+let medicamentos = [];
+
+// Cargar medicamentos desde el archivo JSON
+fetch('./js/productos.json')
+
+  .then(response => response.json())
+  .then(data => {
+    medicamentos = data;
+    mostrarProductos(); // Muestra los productos después de cargarlos
+    actualizarCarritoEnDOM();
+  })
+  .catch(error => console.error('Error al cargar los productos:', error));
+
 
 // Lógica del carrito
 
@@ -213,15 +133,25 @@ document.addEventListener('DOMContentLoaded', () => {
     formularioPedido.addEventListener('submit', (event) => {
         event.preventDefault(); 
 
-const nombre = document.getElementById("nombre").value;
-const telefono = document.getElementById("telefono").value;
-const direccion = document.getElementById("direccion").value;
+// Obtener los datos del formulario y llenarlos automáticamente
+const nombre = "Camila MacNamara";
+const telefono = "123456789";
+const direccion = "Calle CoderHouse 2024";
+
+document.getElementById("nombre").value = nombre;
+document.getElementById("telefono").value = telefono;
+document.getElementById("direccion").value = direccion;
 
 // Mostrar mensaje de confirmación
 mensaje.textContent = `Gracias por comprar en Farma Vet, ${nombre}. Estaremos enviando tus productos a ${direccion} en los próximos días.`;
 mensaje.style.display = 'block'; 
 
-// Limpiar el formulario y ocultar el contenedor del formulario
+ // Limpiar el carrito de pedido
+ carrito = []; 
+ localStorage.removeItem("carrito"); 
+ actualizarCarritoEnDOM(); 
+
+// Limpiar el formulario y lo oculta
 formularioPedido.reset();
 formularioContainer.style.display = 'none'; 
 });
